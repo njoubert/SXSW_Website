@@ -8,7 +8,7 @@
 	<meta name="author" content="Niels Joubert, Gleb Denisov">
 </head>
 <body>
-
+<h1>Welcome to Auto DJ Madness</h1>
 <a href="twitter.php">Log in with twitter.</a>
 
 </body>

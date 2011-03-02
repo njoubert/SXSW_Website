@@ -1,0 +1,6 @@
+<?
+
+require 'noauth.php'
+
+
+?>

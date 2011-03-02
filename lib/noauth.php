@@ -25,7 +25,7 @@ class NOAuth {
 		$this->server = $server;
 	}
 	
-	
+	//step 1: get a request token
 	function get_request_token() {
 		$retarr = array();  // return value
 		$response = array();
@@ -85,6 +85,75 @@ class NOAuth {
 
 		return $retarr;
 
+	}
+
+	//step 2: get the user to authorize the usage of this token
+	function redirect_to_authorize($oauth_token) {
+		header("Location: http://api.twitter.com/oauth/authorize?oauth_token=" . $oauth_token);
+		exit;
+	}
+	
+	//step 3: get an access token from the authorized auth request token:
+	function get_access_token($request_token, $request_token_secret, $oauth_verifier) {
+  		$retarr = array();  // return value
+		$response = array();
+
+		$url = 'https://api.login.yahoo.com/oauth/v2/get_token';
+		$params['oauth_version'] = '1.0';
+		$params['oauth_nonce'] = mt_rand();
+		$params['oauth_timestamp'] = time();
+		$params['oauth_consumer_key'] = $this->server['consumer_key'];
+		$params['oauth_callback'] = $this->server['callback_uri'];
+		$params['oauth_token']= $request_token;
+		$params['oauth_verifier'] = $oauth_verifier;
+
+		// compute signature and add it to the params list
+		if ($useHmacSha1Sig) {
+		  $params['oauth_signature_method'] = 'HMAC-SHA1';
+		  $params['oauth_signature'] =
+		    oauth_compute_hmac_sig($usePost? 'POST' : 'GET', $url, $params,
+		                           $this->server['consumer_secret'], $request_token_secret);
+		} else {
+		  $params['oauth_signature_method'] = 'PLAINTEXT';
+		  $params['oauth_signature'] =
+		    oauth_compute_plaintext_sig($this->server['$consumer_secret'], $request_token_secret);
+		}
+
+		// Pass OAuth credentials in a separate header or in the query string
+		if ($passOAuthInHeader) {
+		  $query_parameter_string = oauth_http_build_query($params, true);
+		  $header = build_oauth_header($params, "api.twitter.com");
+		  $headers[] = $header;
+		} else {
+		  $query_parameter_string = oauth_http_build_query($params);
+		}
+
+		// POST or GET the request
+		if ($usePost) {
+		  $request_url = $url;
+		  logit("getacctok:INFO:request_url:$request_url");
+		  logit("getacctok:INFO:post_body:$query_parameter_string");
+		  $headers[] = 'Content-Type: application/x-www-form-urlencoded';
+		  $response = do_post($request_url, $query_parameter_string, 443, $headers);
+		} else {
+		  $request_url = $url . ($query_parameter_string ?
+		                         ('?' . $query_parameter_string) : '' );
+		  logit("getacctok:INFO:request_url:$request_url");
+		  $response = do_get($request_url, 443, $headers);
+		}
+
+		// extract successful response
+		if (! empty($response)) {
+		  list($info, $header, $body) = $response;
+		  $body_parsed = oauth_parse_str($body);
+		  if (! empty($body_parsed)) {
+		    logit("getacctok:INFO:response_body_parsed:");
+		    print_r($body_parsed);
+		  }
+		  $retarr = $body_parsed;
+		}
+
+		return $retarr;		
 	}
 	
 	

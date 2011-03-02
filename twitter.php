@@ -20,16 +20,17 @@ if (isset($_GET['oauth_token'])) {
 	
 	//step 1: get a token
 	$request_token = $oauth->get_request_token();
-	print_r($request_token);
 	if (!empty($request_token)) {
 		//now, save the request_token and request_token_secret, we need is in step 4
 		$_SESSION['r'] = $request_token['oauth_token'];
-		$_SESSION['rts'] = $request_token['oauth_secret'];
+		$_SESSION['rts'] = $request_token['oauth_token_secret'];
 		//step 2: get the user to authorize the usage of this token
 		$oauth->redirect_to_authorize($request_token['oauth_token']);
 	} else {
 		echo "Twitter login disabled, could not get request token.";
 	}
+	print_r($request_token);
+
 
 }
 ?>

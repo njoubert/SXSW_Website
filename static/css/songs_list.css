@@ -47,6 +47,7 @@ body {
 }
  
 .songs_list li {
+	overflow: hidden;
 	padding:10px;
 	border-bottom:1px solid #ccc;
 	border-top:1px solid #fff;
@@ -61,7 +62,7 @@ body {
 	float: left;
 }
 
-.sogngs_list .title {
+.songs_list .title {
 	margin-bottom: 5px;
 	font-size: 16px;
 	font-weight: bold;

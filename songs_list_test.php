@@ -40,7 +40,7 @@
 	</script>
 </head> 
 <body>
-	<div id="header">Search / Sort Will Be Here</div> 
+	<div id="header">Search / Sort</div> 
 	<div id="container"> 
 		<div id="scroller"> 
 			<ul id="thelist">

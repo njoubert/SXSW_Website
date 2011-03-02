@@ -1,6 +1,5 @@
 <?php
 
-require 'oauth/globals.php'
 require 'oauth/oauth_helper.php'
 
 class NOAuth {

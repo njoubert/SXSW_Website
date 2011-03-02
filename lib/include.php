@@ -1,7 +1,8 @@
 <?
 
-define('DB_USER','db8468_autodj')
+define('DB_USER','db8468_autodj');
 
-require 'noauth.php'
+require 'noauth.php';
+
 
 ?>

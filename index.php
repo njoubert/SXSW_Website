@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<a href="twitter_login.php">Log in with twitter.</a>
+<a href="twitter.php">Log in with twitter.</a>
 
 HELLO!
 </body>

@@ -10,6 +10,9 @@ if (isset($_GET['oauth_token'])) {
 	$tok = $_GET['oauth_token'];
 	$ver = $_GET['oauth_verifier'];
 
+	$r = $_SESSION['r'];
+	$rts = $_SESSION['rts'];
+	print_r($_SESSION);
 	//step 4: exchange request token for access token
 	$access_token = $oauth->get_access_token(r, rts, $ver);
 	

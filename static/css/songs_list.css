@@ -46,9 +46,18 @@ body {
 	text-align:left;
 }
  
-#scroller li {
+.songs_list li {
 	padding:10px;
 	border-bottom:1px solid #ccc;
 	border-top:1px solid #fff;
 	font-size:14px;
 }
+
+.songs_list .preview {
+	width: 52px;
+	height: 52px;
+	margin-right: 10px;
+	background: transparent url('../images/no_album.png');
+	float: left;
+}
+

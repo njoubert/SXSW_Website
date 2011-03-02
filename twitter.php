@@ -14,7 +14,7 @@ if (isset($_GET['oauth_token'])) {
 	$access_token = $oauth->get_access_token(r, rts, $ver);
 	
 	echo "THANK YOU FOR LOGGING IN WITH TWITTER.";
-	print_r($access_token)
+	print_r($access_token);
 	
 } else {
 	

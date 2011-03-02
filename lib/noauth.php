@@ -15,7 +15,7 @@ class NOAuth {
 			'request_token_uri' => 'https://api.twitter.com/oauth/request_token',
 			'authorize_uri' => 'https://api.twitter.com/oauth/authorize',
 			'access_token_uri' => 'https://api.twitter.com/oauth/access_token',
-			'callback_uri' => 'http://glebden.com/djdp3000/twitter_callback.php'
+			'callback_uri' => 'http://glebden.com/djdp3000/twitter.php'
 		);
 		return new NOAuth($server);
 	}

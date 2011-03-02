@@ -11,6 +11,5 @@
 
 <a href="twitter.php">Log in with twitter.</a>
 
-HELLO!
 </body>
 </html>

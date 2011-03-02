@@ -47,7 +47,7 @@
 				for($i=1; $i < 451; $i++) {
 					?>
 					<li>
-						<div class="thumb">
+						<div class="album-cover">
 						</div>
 						<div class="info">
 							<p class="title">

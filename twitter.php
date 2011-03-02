@@ -1,6 +1,6 @@
 <?php
 
-include 'lib/include.php'
+include 'lib/include.php';
 
 if (isset($_GET['oauth_token'])) {
 

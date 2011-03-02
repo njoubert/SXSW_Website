@@ -43,13 +43,24 @@
 	<div id="header">Search / Sort</div> 
 	<div id="container"> 
 		<div id="scroller"> 
-			<ul id="thelist">
-			<?php 
+			<ul id="songs_list"><?php 
 				for($i=1; $i < 451; $i++) {
-					echo "<li>This is entry $i</li>";
+					?>
+					<li>
+						<div class="thumb">
+						</div>
+						<div class="info">
+							<p class="title">
+							Title
+							</p>
+							<p class="artist">
+							Artist Name
+							</p>
+						</div>
+					</li>
+					<?php
 				}
-			?>
-			</ul> 
+			?></ul> 
 		</div> 
 	</div> 
 </body>

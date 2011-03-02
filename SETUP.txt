@@ -1,0 +1,20 @@
+
+
+= TWITTER
+
+	== Database setup:
+
+	Each user has a request token:
+
+		CREATE TABLE users_twitter (
+		  u_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+		  name VARCHAR(50),
+		  state smallint default 0,
+		  oauth_token VARCHAR(50), 
+		  oauth_token_secret VARCHAR(50),
+		  mtime timestamp default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
+		);
+
+	state is whether it's authorized or not.
+
+

@@ -46,7 +46,7 @@
 		document.addEventListener('DOMContentLoaded', loaded, false);
 		
 		$(document).ready(function() {
-			$('.vote-btn').bind('click', function() {
+			$('.vote-btn').bind('mouseup', function() {
 				var song_id = $(this).attr('data-song');
 				alert('You are votin\' for ' + song_id);
 			});

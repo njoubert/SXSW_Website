@@ -34,9 +34,9 @@
 		};
 		
 		// Listen for scroll events on the top level window
-		window.onscroll = function() {
+		/*window.onscroll = function() {
 			moveSearchBar();
-		};
+		};*/
 		
 		$(document).ready(function() {
 			menuDiv = $('#header')[0];

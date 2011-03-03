@@ -20,16 +20,15 @@ body {
 	font-size: 20px;
 	text-align:center;
 	z-index: 2;
-	-webkit-transition: top 0.2s ease-out;
 }
 	
  
 #container {
-	/* height:200px;		 Of course you need to specify the object height */
+	height:245px;		 Of course you need to specify the object height */
 	position:relative;	/* On older OS versions "position" and "z-index" must be defined (absolute | relative), */
 	z-index:1;			/* it seems that recent webkit is less picky and works anyway. */
 	width:100%;
-	overflow:hidden;
+	overflow:scroll;
 }
  
 #scroller {

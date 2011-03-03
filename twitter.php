@@ -23,7 +23,7 @@ if (isset($_REQUEST['oauth_token'])) {
 		//if the user exists, update. if not, create.
 		$DB = new SQLQuery();
 		$DB->chooseTable(DB_USERS_TABLE);
-
+		$DB->toggleDebug();
 		$dataInsert = array();
 		$fullname = explode(" ", $content->name);
 		$fname = "Britney";
@@ -40,7 +40,7 @@ if (isset($_REQUEST['oauth_token'])) {
 
 
 		$user = $DB->selectWhatWhere("*", "tw_id = " . $content->id);
-		
+		echo "<p>YES</p><p>";
 		if (empty($user)) { 
 			$user = $DB->addItemsArray($dataInsert);
 		} else {
@@ -54,7 +54,7 @@ if (isset($_REQUEST['oauth_token'])) {
 		} else {
 			$_SESSION['status'] = 'verified';
 		}
-		
+		echo "</p>";
 		header('Location: ./index.php');
 	} else {
 		header('Location: ./clearsessions.php');

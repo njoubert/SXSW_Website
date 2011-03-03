@@ -47,8 +47,8 @@ body {
 .songs-list li {
 	overflow: hidden;
 	padding:10px;
-	border-top:1px solid #2c2f32;
-	border-bottom:1px solid #4f5258;
+	border-top:1px solid #4f5258;
+	border-bottom:1px solid #2c2f32;
 	font-size:14px;
 	color: #fff;
 }

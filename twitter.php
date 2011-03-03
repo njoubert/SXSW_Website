@@ -15,9 +15,14 @@ if (isset($_REQUEST['oauth_token'])) {
 	unset($_SESSION['oauth_token']);
 	unset($_SESSION['oauth_token_secret']);
 
+	$authedconn = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
+	$content = $authedconn->get('account/verify_credentials');
+	
+	//TODO(njoubert): Here we should pass it off to an "insert into local database and set up our own session" thingy
+
 	if (200 == $connection->http_code) {
 	  $_SESSION['status'] = 'verified';
-	  header('Location: ./browse.php');
+	  header('Location: ./index.php');
 	} else {
 	  header('Location: ./clearsessions.php');
 	}

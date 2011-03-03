@@ -15,7 +15,7 @@ if (isset($_GET['oauth_token'])) {
 	print_r($_SESSION);
 	echo "<p>Session details: " . $r . ", " . $rts . "</p>";
 	//step 4: exchange request token for access token
-	$access_token = $oauth->get_access_token(r, rts, $ver);
+	$access_token = $oauth->get_access_token($r, $rts, $ver);
 	
 	echo "THANK YOU FOR LOGGING IN WITH TWITTER.";
 	print_r($access_token);

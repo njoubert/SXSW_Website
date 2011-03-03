@@ -24,7 +24,7 @@ if (isset($_REQUEST['oauth_token'])) {
 		$DB = new SQLQuery();
 		$DB->chooseTable(DB_USERS_TABLE);
 		$DB->toggleDebug();		
-		$user = $DB->selectWhatWhere("*", "`tw_id` = `" . $content->id . "`");
+		$user = $DB->selectWhatWhere("*", "tw_id = " . $content->id);
 		
 		print_r($user);
 		

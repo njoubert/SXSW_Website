@@ -47,24 +47,26 @@ body {
 .songs-list li {
 	overflow: hidden;
 	padding:10px;
-	border-top:1px dotted #fff;
+	border-top:1px dotted #2c2f32;
+	border-bottom:1px solid #4f5258;
 	font-size:14px;
+	color: #fff;
 }
 
 .songs-list .album-cover {
 	width: 52px;
 	height: 52px;
-	margin-right: 0.8em;
+	margin-right: 1em;
 	background: transparent url('../images/no_album.png');
 	float: left;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
 }
 
 .songs-list .title {
-	margin-bottom: 5px;
-	font-size: 1em;
+	margin-bottom: 8px;
+	font-size: 1.5em;
 	font-weight: bold;
 }
 
@@ -72,11 +74,12 @@ body {
 	display: block;
 	float: right;
 	margin-top: 20px;
-	padding: 5px 8px;
+	padding: 8px 10px;
 	background: #ff3300;
 	color: #fff;
 	text-transform: uppercase;
-	font-size: 0.8em;
+	text-decoration: none;
+	font-size: 1em;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;

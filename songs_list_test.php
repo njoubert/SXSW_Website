@@ -24,7 +24,6 @@
 		var a = 0;
 		function loaded() {
 			setHeight();	// Set the wrapper height.
-		 
 			myScroll = new iScroll('scroller', {desktopCompatibility:true});
 		}
 		 
@@ -32,7 +31,7 @@
 		function setHeight() {
 			var headerH = document.getElementById('header').offsetHeight,
 				wrapperH = window.innerHeight - headerH;
-			document.getElementById('container').style.height = wrapperH + 'px';
+			document.getElementById('container').style.height = '245' + 'px';
 		}
 		 
 		// Check screen size on orientation change
@@ -40,7 +39,7 @@
 		 
 		// Prevent the whole screen to scroll when dragging elements outside of the scroller (ie:header/footer).
 		// If you want to use iScroll in a portion of the screen and still be able to use the native scrolling, do *not* preventDefault on touchmove.
-		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		document.addEventListener('touchmove', function (e) {}, false);
 		 
 		// Load iScroll when DOM content is ready.
 		document.addEventListener('DOMContentLoaded', loaded, false);

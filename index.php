@@ -14,11 +14,11 @@ require_once('lib/include.php');
 <body>
 
 <?php
-
+//LOG IN PAGE
 if (empty($_SESSION['access_token']) || empty($_SESSION['access_token']['oauth_token']) || empty($_SESSION['access_token']['oauth_token_secret'])) {
 
 ?>
-<h1>Welcome to Auto DJ Madness</h1>
+<h1>Sign in to Auto DJ Madness</h1>
 <a href="twitter.php"><img src="static/images/twitter_darker.png"></a>
 
 <?php
@@ -26,6 +26,7 @@ if (empty($_SESSION['access_token']) || empty($_SESSION['access_token']['oauth_t
 ?>
 
 <?php
+//ALREADY LOGGED IN PAGE
 $access_token = $_SESSION['access_token'];
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
 $content = $connection->get('account/verify_credentials');

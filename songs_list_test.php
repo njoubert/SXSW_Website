@@ -2,9 +2,8 @@
 	require_once('lib/include.php');
 	// Getting list of songs
 	$DB = new SQLQuery();
-	$DB->toggleDebug(true);
 	$DB->chooseTable(DB_SONGS_TABLE);
-	$songs = $DB->selectAllOrderBy("'artist' ASC, 'album' ASC, 'title' ASC");
+	$songs = $DB->selectAllOrderBy("artist ASC, album ASC, title ASC");
 	var_dump($DB->error());
 	var_dump($songs);
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 

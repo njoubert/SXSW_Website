@@ -54,6 +54,15 @@ body {
 	color: #fff;
 }
 
+.songs-list .separator {
+	padding: 5px 10px;
+	background: #ff3300;
+	border-top-color: #ff6500;
+	border-bottom-color: #cb2900;
+	font-size: 12px;
+	font-weight: bold;
+}
+
 .songs-list .album-cover {
 	width: 52px;
 	height: 52px;
@@ -65,14 +74,6 @@ body {
 .songs-list .title {
 	margin: 2px 0 8px 0;
 	font-size: 14px;
-	font-weight: bold;
-}
-
-.songs-list .separator {
-	padding: 5px 10px;
-	border-top-color: #ff6500;
-	border-bottom-color: #cb2900;
-	font-size: 12px;
 	font-weight: bold;
 }
 

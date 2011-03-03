@@ -47,7 +47,7 @@
 	</div> 
 	<div id="container"> 
 		<div id="scroller"> 
-			<ul class="songs_list"><?php 
+			<ul class="songs-list"><?php 
 				for($i=1; $i < 451; $i++) {
 					?>
 					<li>

@@ -44,8 +44,9 @@ if (isset($_REQUEST['oauth_token'])) {
 		if (empty($user)) { 
 			$user = $DB->addItemsArray($dataInsert);
 		} else {
-			echo "current user";
 			$user_id = $user[0]["users"]["id"];
+			echo "current user " . $user_id . "</p><p>";
+
 			$user = $DB->updateWhatWhereArray2($dataInsert, "id = " . $user_id);
 		}
 		if (empty($user)) {

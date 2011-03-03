@@ -15,8 +15,8 @@ require_once('lib/include.php');
 
 <?php
 //LOG IN PAGE
-if (empty($_SESSION['access_token']) || empty($_SESSION['access_token']['oauth_token']) || empty($_SESSION['access_token']['oauth_token_secret'])) {
-
+//if (empty($_SESSION['access_token']) || empty($_SESSION['access_token']['oauth_token']) || empty($_SESSION['access_token']['oauth_token_secret'])) {
+if (empty($_SESSION['user_id'])) {
 ?>
 <h1>Sign in to Auto DJ Madness</h1>
 <a href="twitter.php"><img src="static/images/twitter_darker.png"></a>

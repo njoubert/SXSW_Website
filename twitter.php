@@ -17,7 +17,7 @@ if (isset($_REQUEST['oauth_token'])) {
 
 	if (200 == $connection->http_code) {
 	  $_SESSION['status'] = 'verified';
-	  header('Location: ./index.php');
+	  header('Location: ./browse.php');
 	} else {
 	  header('Location: ./clearsessions.php');
 	}

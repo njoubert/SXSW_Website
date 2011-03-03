@@ -19,6 +19,69 @@ Whenever you push something to the master branch, it will automatically go to th
 		Send consumer key and signed secret, auth token and verifier
 		Receive oauth_token and oauth_secret back, both signed
 	4) Query the API!
+	
+	Example info: 
+	
+	
+	        stdClass Object
+(
+    [id_str] => 9142352
+    [statuses_count] => 2453
+    [following] => 
+    [profile_background_tile] => 
+    [friends_count] => 94
+    [listed_count] => 1
+    [profile_image_url] => http://a3.twimg.com/profile_images/59915657/ProfilePic_normal.jpg
+    [description] => Turn it up louder
+    [status] => stdClass Object
+        (
+            [id_str] => 42721061376237568
+            [text] => @hendrikvh why so serious?
+            [truncated] => 
+            [favorited] => 
+            [source] => web
+            [geo] => 
+            [in_reply_to_screen_name] => hendrikvh
+            [in_reply_to_status_id_str] => 42669701607854082
+            [in_reply_to_user_id] => 61993452
+            [created_at] => Tue Mar 01 23:01:09 +0000 2011
+            [contributors] => 
+            [place] => 
+            [retweeted] => 
+            [in_reply_to_status_id] => 4.2669701607854E+16
+            [in_reply_to_user_id_str] => 61993452
+            [coordinates] => 
+            [retweet_count] => 0
+            [id] => 4.2721061376238E+16
+        )
+
+    [profile_link_color] => 0084B4
+    [url] => http://njoubert.com
+    [profile_sidebar_border_color] => C0DEED
+    [screen_name] => njoubert
+    [location] => Palo Alto, CA
+    [is_translator] => 
+    [profile_use_background_image] => 1
+    [lang] => en
+    [verified] => 
+    [notifications] => 
+    [favourites_count] => 1
+    [created_at] => Fri Sep 28 12:14:07 +0000 2007
+    [profile_background_color] => C0DEED
+    [followers_count] => 75
+    [profile_background_image_url] => http://a3.twimg.com/a/1298664727/images/themes/theme1/bg.png
+    [protected] => 
+    [show_all_inline_media] => 
+    [follow_request_sent] => 
+    [geo_enabled] => 1
+    [name] => Niels Joubert
+    [time_zone] => Pacific Time (US & Canada)
+    [profile_text_color] => 333333
+    [id] => 9142352
+    [contributors_enabled] => 
+    [utc_offset] => -28800
+    [profile_sidebar_fill_color] => DDEEF6
+)
 
 	== Database setup:
 

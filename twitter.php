@@ -46,8 +46,7 @@ if (isset($_REQUEST['oauth_token'])) {
 			$user = $DB->addItemsArray($dataInsert);
 		} else {
 			$user_id = $user[0]["users"]["id"];
-			echo "HERE IS THE USER ID:".$user_id;
-			$user = $DB->updateWhatWhereArray();
+			$user = $DB->updateWhatWhereArray2($dataInsert, "id = " . $user_id);
 		}
 		if (empty($user)) {
 			$_SESSION['status'] = 'error';

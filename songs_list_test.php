@@ -20,26 +20,32 @@
 	<script type="text/javascript" src="static/js/iscroll-min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		var menuDiv;
-		var menuOffset = -50;
-		
-		// Called when it's time for the floaty bar to move
-		var moveSearchBar = function() {
-			if(menuDiv) {
-				 var translate = window.scrollY;
-				 menuDiv.style['-webkit-transform'] = 'translateY(' + translate + 'px)';
-			 } else {
-			 	console.log('not ready to scroll yet');
-			 }
-		};
-		
-		// Listen for scroll events on the top level window
-		/*window.onscroll = function() {
-			moveSearchBar();
-		};*/
+		var myScroll;
+		var a = 0;
+		function loaded() {
+			setHeight();	// Set the wrapper height.
+		 
+			myScroll = new iScroll('scroller', {desktopCompatibility:true});
+		}
+		 
+		// Change wrapper height based on device orientation.
+		function setHeight() {
+			var headerH = document.getElementById('header').offsetHeight,
+				wrapperH = window.innerHeight - headerH;
+			document.getElementById('container').style.height = wrapperH + 'px';
+		}
+		 
+		// Check screen size on orientation change
+		window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', setHeight, false);
+		 
+		// Prevent the whole screen to scroll when dragging elements outside of the scroller (ie:header/footer).
+		// If you want to use iScroll in a portion of the screen and still be able to use the native scrolling, do *not* preventDefault on touchmove.
+		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		 
+		// Load iScroll when DOM content is ready.
+		document.addEventListener('DOMContentLoaded', loaded, false);
 		
 		$(document).ready(function() {
-			menuDiv = $('#header')[0];
 			$('.vote-btn').bind('click', function() {
 				var song_id = $(this).attr('data-song');
 				$(this).html(song_id);

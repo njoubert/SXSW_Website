@@ -40,7 +40,7 @@ if (isset($_REQUEST['oauth_token'])) {
 
 
 		$user = $DB->selectWhatWhere("*", "tw_id = " . $content->id);
-		print_r($user);
+		
 		if (empty($user)) { 
 			$user = $DB->addItemsArray($dataInsert);
 		} else {

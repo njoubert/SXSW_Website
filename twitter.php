@@ -1,47 +1,45 @@
 <?php
 session_start();
-include 'lib/include.php';
+require_once('lib/include.php');
 
 $oauth = NOAuth::get_for_twitter();
 
-if (isset($_GET['oauth_token'])) {
+if (isset($_REQUEST['oauth_token'])) {
 	
-	//step 3: receive an authorized token back
-	$tok = $_GET['oauth_token'];
-	$ver = $_GET['oauth_verifier'];
-
-	$oauth_token = $_SESSION['oauth_token'];
-	$oauth_token_secret = $_SESSION['oauth_token_secret'];
-	
-	if ($oauth_token != $tok) {
-		echo "<p>The tokens does not match...</p>";
+	if ($_SESSION['oauth_token'] !== $_REQUEST['oauth_token']) {
+		$_SESSION['oauth_status'] = 'oldtoken';
+		header('Location: ./clearsessions.php');
 	}
 	
-	echo "<p>Session details: " . $r . ", " . $rts . "</p>";
-	echo "<p>Received details:" . $tok . ", " . $ver . "</p>";
+	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $_SESSION['oauth_token'], $_SESSION['oauth_token_secret']);
+	$access_token = $connection->getAccessToken($_REQUEST['oauth_verifier']);
+	$_SESSION['access_token'] = $access_token;
+	unset($_SESSION['oauth_token']);
+	unset($_SESSION['oauth_token_secret']);
 
-	//step 4: exchange request token for access token
-	$access_token = $oauth->get_access_token($oauth_token, $oauth_token_secret, $ver);
-	
-	echo "THANK YOU FOR LOGGING IN WITH TWITTER.";
-	print_r($access_token);
+	if (200 == $connection->http_code) {
+	  $_SESSION['status'] = 'verified';
+	  header('Location: ./index.php');
+	} else {
+	  header('Location: ./clearsessions.php');
+	}
 	
 } else {
 	
-	//step 1: get a token
-	$request_token = $oauth->get_request_token();
-	if (!empty($request_token)) {
-		//now, save the request_token and request_token_secret, we need is in step 4
-		$_SESSION['oauth_token'] = $request_token['oauth_token'];
-		$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
-
-		//step 2: get the user to authorize the usage of this token
-		$oauth->redirect_to_authorize($request_token['oauth_token']);
-	} else {
-		echo "Twitter login disabled, could not get request token.";
+	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
+	$request_token = $connection->getRequestToken(OAUTH_CALLBACK);
+	$_SESSION['oauth_token'] = $token = $request_token['oauth_token'];
+	$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
+	switch ($connection->http_code) {
+		case 200:
+		/* Build authorize URL and redirect user to Twitter. */
+			$url = $connection->getAuthorizeURL($token);
+			header('Location: ' . $url); 
+			break;
+		default:
+	    	/* Show notification if something went wrong. */
+	    	echo 'Could not connect to Twitter. Refresh the page or try again later.';
 	}
-	print_r($request_token);
-
 
 }
 ?>

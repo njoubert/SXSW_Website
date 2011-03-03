@@ -44,6 +44,14 @@
 		 
 		// Load iScroll when DOM content is ready.
 		document.addEventListener('DOMContentLoaded', loaded, false);
+		
+		$(document).ready(function() {
+			$('.vote-btn').bind('click', function(e) {
+				e.preventDefault();
+				var song_id = $(this).attr('data-song');
+				alert('You are votin\' for ' + song_id);
+			});
+		});
 	</script>
 </head> 
 <body>
@@ -66,7 +74,7 @@
 						}
 						?>
 						<li id="song_<?php echo $song['songs']['id']; ?>">
-							<a class="vote-btn" href="#">Vote</a>
+							<a class="vote-btn" href="#" data-song="<?php echo $song['songs']['id']; ?>">Vote</a>
 							<div class="album-cover">
 							</div>
 							<div class="info">

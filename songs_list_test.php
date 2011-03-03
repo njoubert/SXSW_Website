@@ -47,9 +47,9 @@
 		
 		$(document).ready(function() {
 			$('.vote-btn').bind('click', function() {
-				console.log('clickity click');
 				var song_id = $(this).attr('data-song');
-				alert('You are votin\' for ' + song_id);
+				$(this).html(song_id);
+				//alert('You are votin\' for ' + song_id);
 			});
 		});
 	</script>

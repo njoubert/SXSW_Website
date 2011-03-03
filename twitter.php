@@ -18,18 +18,44 @@ if (isset($_REQUEST['oauth_token'])) {
 	$authedconn = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
 	$content = $authedconn->get('account/verify_credentials');
 	
-	if (200 == $connection->http_code) {
+	if (200 == $connection->http_code && !empty($content->id)) {
 		//TODO(njoubert): Here we should pass it off to an "insert into local database and set up our own session" thingy
 		//if the user exists, update. if not, create.
 		$DB = new SQLQuery();
 		$DB->chooseTable(DB_USERS_TABLE);
 		$DB->toggleDebug();		
 		$user = $DB->selectWhatWhere("*", "tw_id = " . $content->id);
+
+		if (empty($user)) {
+			//new user!
+			$dataInsert = array();
+			$fullname = explode(" ", $content->name);
+			$fname = "Britney";
+			$lname = "Spears";
+			if (count($fullname) > 0) {
+				$fname = $fullname[0];
+			}
+			if (count($fullname) > 1) {
+				$lname = $fullname[1];
+			}
+			$dataInsert['tw_id'] = $content->id;
+			$dataInsert['fname'] = $fname;
+			$dataInsert['lname'] = $lname;
+			$dataInsert['tw_name'] = $screen_name;
+			$dataInsert['avatar'] = $content->profile_image_url;
+			$user = $DB->addItemsArray($dataInsert);
+			
+			
+		} else {
+			//update user!
+			
+		}
 		
 		print_r($user);
 		
 		$_SESSION['status'] = 'verified';
 		$_SESSION['twitter_uid'] = $content->id;
+		$_SESSION['user_id'] = $user->id;
 		//header('Location: ./index.php');
 	} else {
 		header('Location: ./clearsessions.php');

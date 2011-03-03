@@ -68,6 +68,14 @@ body {
 	font-weight: bold;
 }
 
+.songs-list .separator {
+	padding: 5px 10px;
+	border-top-color: #ff6500;
+	border-bottom-color: #cb2900;
+	font-size: 12px;
+	font-weight: bold;
+}
+
 .songs-list .vote-btn {
 	display: block;
 	float: right;

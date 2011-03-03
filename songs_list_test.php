@@ -55,7 +55,14 @@
 		<div id="scroller"> 
 			<ul class="songs-list"><?php 
 				if (is_array($songs)) {
+					$cur_artist = "";
 					foreach($songs as $key => $song) {
+						if($song['songs']['artist'] != $cur_artist) {
+							$cur_artist = $song['songs']['artist'];
+							?>
+							<li class="separator"><?php echo $song['songs']['artist']; ?></li>
+							<?php
+						}
 						?>
 						<li id="song_<?php echo $song['songs']['id']; ?>">
 							<a class="vote-btn" href="#">Vote</a>

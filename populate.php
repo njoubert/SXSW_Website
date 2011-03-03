@@ -15,13 +15,13 @@
 			$DB->chooseTable(DB_SONGS_TABLE);
 			foreach($songs['songs'] as $song) {
 				$dataInsert = array();
+				$dataInsert['id'] = $song['id'];
 				$dataInsert['title'] = $song['title'];
 				$dataInsert['artist'] = $song['artist'];
 				$dataInsert['album'] = $song['album'];
 				$dataInsert['length'] = $song['length'];
 				$dataInsert['filename'] = $song['filename'];
 				$DB->addItemsArray($dataInsert);
-				var_dump($DB->error());
 				echo "Added " . $song['title'] . " by " . $song['artist'] . " to the database.<br />";
 			}
 		}

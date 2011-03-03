@@ -46,12 +46,14 @@
 		
 		$(document).ready(function() {
 			$('.vote-btn').bind('touchstart', function() {
-				$(this).addClass('click');
-				var song_id = $(this).attr('data-song');
-				alert('You are votin\' for ' + song_id);
-			});
-			$('.vote-btn').bind('touchend', function() {
-				$(this).removeClass('click');
+				var el = $(this);
+				el.addClass('click');
+				var song_id = el.attr('data-song');
+				if(confirm('You are votin\' for ' + song_id)) {
+					el.html('Voted');
+				} else {
+					el.removeClass('click');
+				};
 			});
 		});
 	</script>

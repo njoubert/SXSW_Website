@@ -4,6 +4,7 @@ class SQLQuery {
     protected $_result;
 	protected $_table;
 	protected $_numRows;
+	protected $_debug;
 
 	function __construct() {
 		$this->connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
@@ -27,6 +28,15 @@ class SQLQuery {
         else {
             return 0;
         }
+    }
+    
+    /** Toggle debug mode on **/
+    function toggleDebug($on=true) {
+    	if($on) {
+    		$this->_debug = true;
+    	} else {
+    		$this->_debug = false;
+    	}
     }
 
     /** Disconnects from database **/
@@ -182,7 +192,10 @@ class SQLQuery {
 	}
 	
 	function query($query, $singleResult = 0) {
-
+		if($this->_debug) {
+			var_dump($query);
+		}
+		
 		$this->_result = mysql_query($query, $this->_dbHandle);
 
 		if (preg_match("/select/i",$query)) {

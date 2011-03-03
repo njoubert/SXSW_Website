@@ -4,8 +4,6 @@
 	$DB = new SQLQuery();
 	$DB->chooseTable(DB_SONGS_TABLE);
 	$songs = $DB->selectAllOrderBy("artist ASC, album ASC, title ASC");
-	var_dump($DB->error());
-	var_dump($songs);
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
 <head> 
@@ -56,22 +54,24 @@
 	<div id="container"> 
 		<div id="scroller"> 
 			<ul class="songs-list"><?php 
-				for($i=1; $i < 451; $i++) {
-					?>
-					<li>
-						<a class="vote-btn" href="#">Vote</a>
-						<div class="album-cover">
-						</div>
-						<div class="info">
-							<p class="title">
-							Title
-							</p>
-							<p class="artist">
-							Artist Name
-							</p>
-						</div>
-					</li>
-					<?php
+				if (is_array($songs)) {
+					foreach($songs as $key => $song) {
+						?>
+						<li id="song_<?php echo $song['songs']['id']; ?>">
+							<a class="vote-btn" href="#">Vote</a>
+							<div class="album-cover">
+							</div>
+							<div class="info">
+								<p class="title">
+								Title
+								</p>
+								<p class="artist">
+								Artist Name
+								</p>
+							</div>
+						</li>
+						<?php
+					}
 				}
 			?></ul> 
 		</div> 

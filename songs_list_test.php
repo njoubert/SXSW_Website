@@ -46,7 +46,6 @@
 		
 		$(document).ready(function() {
 			$('.vote-btn').bind('touchstart', function() {
-				e.stopPropagation();
 				e.preventDefault();
 				var song_id = $(this).attr('data-song');
 				$(this).html(song_id);

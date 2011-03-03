@@ -31,7 +31,7 @@
 		function setHeight() {
 			var headerH = document.getElementById('header').offsetHeight,
 				wrapperH = window.innerHeight - headerH;
-			document.getElementById('container').style.height = '245' + 'px';
+			document.getElementById('container').style.height = wrapperH + 'px';
 		}
 		 
 		// Check screen size on orientation change

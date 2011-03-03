@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'lib/include.php';
 
 $oauth = NOAuth::get_for_twitter();

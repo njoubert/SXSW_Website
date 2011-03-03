@@ -7,6 +7,19 @@ Whenever you push something to the master branch, it will automatically go to th
 
 = TWITTER
 
+	Twitter OAuth 1.0 workflow:
+	
+	1) Acquire request token:
+		Send them consumer key and signed consumer secret
+		Receive oauth_token and oauth_token_secret
+	2) Send user to authorization
+		Redirect user to authentication page, send oauth_token along
+		Receive a callback containing token and verifier
+	3) Exchange request token for access token.
+		Send consumer key and signed secret, auth token and verifier
+		Receive oauth_token and oauth_secret back, both signed
+	4) Query the API!
+
 	== Database setup:
 
 	Each user has a request token:

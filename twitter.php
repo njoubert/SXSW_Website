@@ -13,6 +13,7 @@ if (isset($_GET['oauth_token'])) {
 	$r = $_SESSION['r'];
 	$rts = $_SESSION['rts'];
 	print_r($_SESSION);
+	echo "<p>Session details: " . $r . ", " . $rts . "</p>"
 	//step 4: exchange request token for access token
 	$access_token = $oauth->get_access_token(r, rts, $ver);
 	

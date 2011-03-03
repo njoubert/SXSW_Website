@@ -34,7 +34,7 @@ $content = $connection->get('account/verify_credentials');
 <h1>WELCOME!</h1>
 <p><a href="./clearsessions.php">Log out</a></p>
 
-<p><h1>Hello <?php echo $content->name; ?></h1></p>
+<p><h1>Hello <?php echo $content->name; ?>, your twitter id is <?php echo $_SESSION['twitter_uid']?></h1></p>
 <p><h1><a href="vote_announce.php">VOTE FOR THIS SHIT NOW! WE WILL TWEET IT LIKE A BOSS.</a></h1></p>
 <?php
 

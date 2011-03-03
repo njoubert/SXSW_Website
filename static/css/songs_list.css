@@ -56,30 +56,27 @@ body {
 .songs-list .album-cover {
 	width: 52px;
 	height: 52px;
-	margin-right: 1em;
+	margin-right: 10px;
 	background: transparent url('../images/no_album.png');
 	float: left;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
 }
 
 .songs-list .title {
-	margin-bottom: 8px;
-	font-size: 1.5em;
+	margin-bottom: 10px;
+	font-size: 20px;
 	font-weight: bold;
 }
 
 .songs-list .vote-btn {
 	display: block;
 	float: right;
-	margin-top: 20px;
+	margin-top: 15px;
 	padding: 8px 10px;
 	background: #ff3300;
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
-	font-size: 1em;
+	font-size: 14px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;

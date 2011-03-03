@@ -179,14 +179,7 @@ class SQLQuery {
 	}
 	
 	function updateWhatWhereArray2($_keyvalues, $_where) {
-		$_values = $_keyvalues;
-		$_fields = array_keys($_keyvalues);
-		$updateArray = array();
-		$updateArray = $this->appendUpdateString($updateArray, $_values, $_fields);
-		if(count($updateArray) > 0) {
-	    	$valToInsert = $this->updateArrayToString($updateArray);
-	    	return $this->updateWhatWhere($valToInsert, $_where);
-	    } else return 0;
+		return $this->updateWhatWhereArray($_keyvalues, array_keys($_keyvalues), $_where)
 	}
 	
 	function updateWhatWhere($fields, $where) {

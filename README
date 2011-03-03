@@ -87,12 +87,17 @@ Whenever you push something to the master branch, it will automatically go to th
 
 	Each user has a request token:
 
-		CREATE TABLE users_twitter (
-		  u_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-		  name VARCHAR(50),
-		  state smallint default 0,
-		  oauth_token VARCHAR(50), 
-		  oauth_token_secret VARCHAR(50),
+		CREATE TABLE users (
+		  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+		  fb_id VARCHAR(255),
+		  tw_id VARCHAR(255),
+		  tw_name VARCHAR(255),
+		  fname VARCHAR(255),
+		  lname VARCHAR(255),
+		  avatar VARCHAR(255),
+		  tw_state smallint default 0,
+		  tw_oauth_token VARCHAR(50), 
+		  tw_oauth_token_secret VARCHAR(50),
 		  mtime timestamp default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
 		);
 

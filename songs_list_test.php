@@ -50,6 +50,9 @@
 				var song_id = $(this).attr('data-song');
 				alert('You are votin\' for ' + song_id);
 			});
+			$('.vote-btn').bind('touchend', function() {
+				$(this).removeClass('click');
+			});
 		});
 	</script>
 </head> 

@@ -44,6 +44,7 @@ if (isset($_REQUEST['oauth_token'])) {
 		if (empty($user)) { 
 			$user = $DB->addItemsArray($dataInsert);
 		} else {
+			echo "current user";
 			$user_id = $user[0]["users"]["id"];
 			$user = $DB->updateWhatWhereArray2($dataInsert, "id = " . $user_id);
 		}
@@ -55,7 +56,7 @@ if (isset($_REQUEST['oauth_token'])) {
 			$_SESSION['status'] = 'verified';
 		}
 		echo "</p>";
-		header('Location: ./index.php');
+		//header('Location: ./index.php');
 	} else {
 		header('Location: ./clearsessions.php');
 	}

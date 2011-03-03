@@ -18,6 +18,7 @@
 	<title>Auto DJ</title>
 	
 	<script type="text/javascript" src="static/js/iscroll-min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		var myScroll;
 		var a = 0;

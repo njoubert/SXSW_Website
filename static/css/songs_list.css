@@ -47,8 +47,7 @@ body {
 .songs-list li {
 	overflow: hidden;
 	padding:10px;
-	border-bottom:1px solid #ccc;
-	border-top:1px solid #fff;
+	border-top:1px dotted #fff;
 	font-size:14px;
 }
 
@@ -69,7 +68,7 @@ body {
 	font-weight: bold;
 }
 
-.songs-list .vote {
+.songs-list .vote-btn {
 	display: block;
 	float: right;
 	margin-top: 20px;
@@ -82,4 +81,3 @@ body {
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 }
-

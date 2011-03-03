@@ -51,7 +51,7 @@
 				for($i=1; $i < 451; $i++) {
 					?>
 					<li>
-						<a class="vote-button" href="#">Vote</a>
+						<a class="vote-btn" href="#">Vote</a>
 						<div class="album-cover">
 						</div>
 						<div class="info">

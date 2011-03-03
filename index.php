@@ -34,7 +34,11 @@ $content = $connection->get('account/verify_credentials');
 <p><a href="./clearsessions.php">Log out</a></p>
 
 <p><b>Hello <?php $content['name'] ?></b></p>
-
+    <p>
+      <pre>
+        <?php print_r($content); ?>
+      </pre>
+    </p>
 <?php
 }
 ?>

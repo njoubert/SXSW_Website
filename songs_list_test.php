@@ -1,4 +1,5 @@
-<?php 
+<?php
+	require_once('lib/include.php');
 	// Getting list of songs
 	$DB = new SQLQuery();
 	$DB->chooseTable(DB_SONGS_TABLE);

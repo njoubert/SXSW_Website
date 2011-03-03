@@ -27,6 +27,8 @@ if (isset($_REQUEST['oauth_token'])) {
 		$user = $DB->selectWhatWhere("*", "tw_id = " . $content->id);
 
 		if (empty($user)) {
+			echo "NEW USER";
+			
 			//new user!
 			$dataInsert = array();
 			$fullname = explode(" ", $content->name);
@@ -41,14 +43,16 @@ if (isset($_REQUEST['oauth_token'])) {
 			$dataInsert['tw_id'] = $content->id;
 			$dataInsert['fname'] = $fname;
 			$dataInsert['lname'] = $lname;
-			$dataInsert['tw_name'] = $screen_name;
+//			$dataInsert['tw_name'] = $screen_name;
 			$dataInsert['avatar'] = $content->profile_image_url;
 			$user = $DB->addItemsArray($dataInsert);
-			
+			if (empty($user)) {
+				echo "GOT BACK EMPTY AFTER SAVE";
+			}
 			
 		} else {
 			//update user!
-			
+			echo "OLD USER";
 		}
 		
 		print_r($user);

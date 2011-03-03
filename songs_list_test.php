@@ -48,7 +48,7 @@
 			$('.vote-btn').bind('touchstart', function() {
 				var song_id = $(this).attr('data-song');
 				$(this).html(song_id);
-				//alert('You are votin\' for ' + song_id);
+				alert('You are votin\' for ' + song_id);
 			});
 		});
 	</script>

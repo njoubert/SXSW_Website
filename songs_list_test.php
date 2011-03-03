@@ -40,7 +40,11 @@
 	</script>
 </head> 
 <body>
-	<div id="header">Search / Sort</div> 
+	<div id="header">
+		<form>
+			<input type="text" hint="Filter songs by artist or title" />
+		</form>
+	</div> 
 	<div id="container"> 
 		<div id="scroller"> 
 			<ul class="songs_list"><?php 

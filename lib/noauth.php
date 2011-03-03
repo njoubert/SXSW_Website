@@ -98,7 +98,7 @@ class NOAuth {
   		$retarr = array();  // return value
 		$response = array();
 
-		$url = 'https://api.login.yahoo.com/oauth/v2/get_token';
+		$url = 'https://api.twitter.com/oauth/access_token';
 		$params['oauth_version'] = '1.0';
 		$params['oauth_nonce'] = mt_rand();
 		$params['oauth_timestamp'] = time();

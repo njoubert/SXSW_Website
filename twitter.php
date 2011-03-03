@@ -12,11 +12,16 @@ if (isset($_GET['oauth_token'])) {
 
 	$r = $_SESSION['r'];
 	$rts = $_SESSION['rts'];
-	print_r($_SESSION);
+	
+	if ($r != $tok) {
+		echo "<p>The tokens does not match...</p>";
+	}
+	
 	echo "<p>Session details: " . $r . ", " . $rts . "</p>";
 	echo "<p>Received details:" . $tok . ", " . $ver . "</p>";
+
 	//step 4: exchange request token for access token
-	$access_token = $oauth->get_access_token($token, $rts, $ver);
+	$access_token = $oauth->get_access_token($tok, $rts, $ver);
 	
 	echo "THANK YOU FOR LOGGING IN WITH TWITTER.";
 	print_r($access_token);
@@ -29,6 +34,7 @@ if (isset($_GET['oauth_token'])) {
 		//now, save the request_token and request_token_secret, we need is in step 4
 		$_SESSION['r'] = $request_token['oauth_token'];
 		$_SESSION['rts'] = $request_token['oauth_token_secret'];
+
 		//step 2: get the user to authorize the usage of this token
 		$oauth->redirect_to_authorize($request_token['oauth_token']);
 	} else {

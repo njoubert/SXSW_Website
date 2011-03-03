@@ -43,7 +43,7 @@
 		 
 		// Load iScroll when DOM content is ready.
 		document.addEventListener('DOMContentLoaded', loaded, false);
-		window.scroll(1, 0);
+		window.scrollTo(0, 1);
 		$(document).ready(function() {
 			$('.vote-btn').bind('click', function() {
 				var song_id = $(this).attr('data-song');

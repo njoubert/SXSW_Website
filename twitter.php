@@ -42,22 +42,22 @@ if (isset($_REQUEST['oauth_token'])) {
 
 		$user = $DB->selectWhatWhere("*", "tw_id = " . $content->id);
 		print_r($user);
-		// if (empty($user)) { 
-		// 	$user = $DB->addItemsArray($dataInsert);
-		// } else {
-		// 	$user_id = $user[0]["id"];
-		// 	
-		// 	$user = $DB->updateWhatWhereArray();
-		// }
-		// if (empty($user)) {
-		// 	$_SESSION['status'] = 'error';
-		// 	$_SESSION['twitter_uid'] = $content->id;
-		// 	$_SESSION['user_id'] = $user->id;
-		// } else {
-		// 	$_SESSION['status'] = 'verified';
-		// }
-		// 
-		// header('Location: ./index.php');
+		if (empty($user)) { 
+			$user = $DB->addItemsArray($dataInsert);
+		} else {
+			$user_id = $user[0]["users"]["id"];
+			echo "HERE IS THE USER ID:".$user_id;
+			$user = $DB->updateWhatWhereArray();
+		}
+		if (empty($user)) {
+			$_SESSION['status'] = 'error';
+			$_SESSION['twitter_uid'] = $content->id;
+			$_SESSION['user_id'] = $user->id;
+		} else {
+			$_SESSION['status'] = 'verified';
+		}
+		
+		header('Location: ./index.php');
 	} else {
 		header('Location: ./clearsessions.php');
 	}

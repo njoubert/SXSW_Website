@@ -17,10 +17,32 @@
 	
 	<title>Auto DJ</title>
 	
-	
+	<script type="text/javascript" src="static/js/iscroll-min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript" src="static/js/touch-scroll.js"></script>
 	<script type="text/javascript">
+		var myScroll;
+		var a = 0;
+		function loaded() {
+			setHeight();	// Set the wrapper height.
+			myScroll = new iScroll('scroller', {desktopCompatibility:true});
+		}
+		 
+		// Change wrapper height based on device orientation.
+		function setHeight() {
+			var headerH = document.getElementById('header').offsetHeight,
+				wrapperH = window.innerHeight - headerH;
+			document.getElementById('container').style.height = wrapperH + 'px';
+		}
+		 
+		// Check screen size on orientation change
+		window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', setHeight, false);
+		 
+		// Prevent the whole screen to scroll when dragging elements outside of the scroller (ie:header/footer).
+		// If you want to use iScroll in a portion of the screen and still be able to use the native scrolling, do *not* preventDefault on touchmove.
+		document.addEventListener('touchmove', function (e) {}, false);
+		 
+		// Load iScroll when DOM content is ready.
+		document.addEventListener('DOMContentLoaded', loaded, false);
 		
 		$(document).ready(function() {
 			$('.vote-btn').bind('touchstart', function() {
@@ -28,8 +50,6 @@
 				var song_id = $(this).attr('data-song');
 				alert('You are votin\' for ' + song_id);
 			});
-			
-			$('#container').touchScroll();
 		});
 	</script>
 </head> 

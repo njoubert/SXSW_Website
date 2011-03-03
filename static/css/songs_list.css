@@ -50,6 +50,7 @@ body {
 	border-top:1px solid #4f5258;
 	border-bottom:1px solid #2c2f32;
 	font-size:14px;
+	line-height: 120%;
 	color: #fff;
 }
 
@@ -63,7 +64,7 @@ body {
 
 .songs-list .title {
 	margin: 2px 0 8px 0;
-	font-size: 18px;
+	font-size: 14px;
 	font-weight: bold;
 }
 

@@ -20,6 +20,7 @@ body {
 	font-size: 20px;
 	text-align:center;
 	z-index: 2;
+	-webkit-transition: top 0.2s ease-out;
 }
 	
  

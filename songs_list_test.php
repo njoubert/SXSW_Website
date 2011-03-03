@@ -26,7 +26,7 @@
 		// Called when it's time for the floaty bar to move
 		var moveSearchBar = function() {
 			if(menuDiv) {
-				 var translate = window.scrollY - menuOffset;
+				 var translate = window.scrollY;
 				 menuDiv.style['-webkit-transform'] = 'translateY(' + translate + 'px)';
 			 } else {
 			 	console.log('not ready to scroll yet');

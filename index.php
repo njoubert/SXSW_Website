@@ -40,7 +40,3 @@ $content = $connection->get('account/verify_credentials');
 
 </body>
 </html>
-
-
-?>
-

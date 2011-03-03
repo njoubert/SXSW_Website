@@ -30,7 +30,7 @@
 		// Change wrapper height based on device orientation.
 		function setHeight() {
 			var headerH = document.getElementById('header').offsetHeight,
-				wrapperH = window.innerHeight - headerH;
+				wrapperH = window.innerHeight;
 			document.getElementById('container').style.height = wrapperH + 'px';
 		}
 		 

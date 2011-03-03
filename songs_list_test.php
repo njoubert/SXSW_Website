@@ -30,7 +30,7 @@
 		// Change wrapper height based on device orientation.
 		function setHeight() {
 			var headerH = document.getElementById('header').offsetHeight,
-				wrapperH = window.innerHeight;
+				wrapperH = window.innerHeight - headerH;
 			document.getElementById('container').style.height = wrapperH + 'px';
 		}
 		 
@@ -43,9 +43,9 @@
 		 
 		// Load iScroll when DOM content is ready.
 		document.addEventListener('DOMContentLoaded', loaded, false);
-		window.scrollTo(0, 1);
+		
 		$(document).ready(function() {
-			$('.vote-btn').bind('click', function() {
+			$('.vote-btn').bind('touchstart', function() {
 				var song_id = $(this).attr('data-song');
 				$(this).html(song_id);
 				//alert('You are votin\' for ' + song_id);

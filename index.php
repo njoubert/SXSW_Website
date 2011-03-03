@@ -37,6 +37,9 @@ $content = $connection->get('account/verify_credentials');
 <p><h1>Hello <?php echo $content->name; ?></h1></p>
 <p><h1><a href="vote_announce.php">VOTE FOR THIS SHIT NOW! WE WILL TWEET IT LIKE A BOSS.</a></h1></p>
 <?php
+
+print_r($content);
+
 }
 ?>
 

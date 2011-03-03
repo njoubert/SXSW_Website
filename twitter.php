@@ -23,7 +23,7 @@ if (isset($_REQUEST['oauth_token'])) {
 		//if the user exists, update. if not, create.
 		$DB = new SQLQuery();
 		$DB->chooseTable(DB_USERS_TABLE);
-		$user = $DB->selectWhatWhere("*", "tw_id = \'" . $content->id . "\'");
+		$user = $DB->selectWhatWhere("*", "`tw_id` = `" . $content->id . "`");
 		
 		
 		print_r($user);

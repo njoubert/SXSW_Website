@@ -46,8 +46,7 @@
 		document.addEventListener('DOMContentLoaded', loaded, false);
 		
 		$(document).ready(function() {
-			$('.vote-btn').bind('click', function(e) {
-				e.preventDefault();
+			$('.vote-btn').bind('click', function() {
 				var song_id = $(this).attr('data-song');
 				alert('You are votin\' for ' + song_id);
 			});
@@ -74,7 +73,7 @@
 						}
 						?>
 						<li id="song_<?php echo $song['songs']['id']; ?>">
-							<a class="vote-btn" href="#" data-song="<?php echo $song['songs']['id']; ?>">Vote</a>
+							<div class="vote-btn" href="#" data-song="<?php echo $song['songs']['id']; ?>">Vote</div>
 							<div class="album-cover">
 							</div>
 							<div class="info">

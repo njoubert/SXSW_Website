@@ -62,15 +62,15 @@ body {
 }
 
 .songs-list .title {
-	margin-bottom: 10px;
-	font-size: 20px;
+	margin: 2px 0 8px 0;
+	font-size: 18px;
 	font-weight: bold;
 }
 
 .songs-list .vote-btn {
 	display: block;
 	float: right;
-	margin-top: 15px;
+	margin-top: 10px;
 	padding: 8px 10px;
 	background: #ff3300;
 	color: #fff;

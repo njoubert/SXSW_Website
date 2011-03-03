@@ -19,7 +19,7 @@ if (empty($_SESSION['access_token']) || empty($_SESSION['access_token']['oauth_t
 
 ?>
 <h1>Welcome to Auto DJ Madness</h1>
-<a href="twitter.php">Log in with twitter.</a>
+<a href="twitter.php"><img src="static/images/twitter_darker.png"</a>
 
 <?php
 } else {

@@ -62,12 +62,8 @@
 							<div class="album-cover">
 							</div>
 							<div class="info">
-								<p class="title">
-								Title
-								</p>
-								<p class="artist">
-								Artist Name
-								</p>
+								<p class="title"><?php echo $song['songs']['title']; ?></p>
+								<p class="artist"><?php echo $song['songs']['artist']; ?></p>
 							</div>
 						</li>
 						<?php

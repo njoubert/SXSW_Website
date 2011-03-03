@@ -21,11 +21,12 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		var menuDiv;
+		var menuOffset;
 		
 		// Called when it's time for the floaty bar to move
 		var moveSearchBar = function() {
 			if(menuDiv) {
-				 var translate = window.scrollY - (-50);
+				 var translate = window.scrollY - menuOffset;
 				 menuDiv.style['-webkit-transform'] = 'translateY(' + translate + 'px)';
 			 } else {
 			 	console.log('not ready to scroll yet');
@@ -39,6 +40,7 @@
 		
 		$(document).ready(function() {
 			menuDiv = $('#header')[0];
+			menuOffset = $('#header').outerHeight();
 			$('.vote-btn').bind('click', function() {
 				var song_id = $(this).attr('data-song');
 				$(this).html(song_id);

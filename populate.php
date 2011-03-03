@@ -21,7 +21,7 @@
 				$dataInsert['length'] = $song['length'];
 				$dataInsert['filename'] = $song['filename'];
 				$DB->addItemsArray($dataInsert);
-				var_dump($DB->error())
+				var_dump($DB->error());
 				echo "Added " . $song['title'] . " by " . $song['artist'] . " to the database.<br />";
 			}
 		}

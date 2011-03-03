@@ -2,8 +2,6 @@
 session_start();
 require_once('lib/include.php');
 
-$oauth = NOAuth::get_for_twitter();
-
 if (isset($_REQUEST['oauth_token'])) {
 	
 	if ($_SESSION['oauth_token'] !== $_REQUEST['oauth_token']) {

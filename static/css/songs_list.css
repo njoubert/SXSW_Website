@@ -22,10 +22,8 @@ body {
  
 #container {
 	height:200px;		/* Of course you need to specify the object height */
- 
 	position:relative;	/* On older OS versions "position" and "z-index" must be defined (absolute | relative), */
 	z-index:1;			/* it seems that recent webkit is less picky and works anyway. */
- 
 	width:100%;
 	overflow:hidden;
 }
@@ -57,14 +55,14 @@ body {
 .songs_list .album-cover {
 	width: 52px;
 	height: 52px;
-	margin-right: 10px;
+	margin-right: 0.8em;
 	background: transparent url('../images/no_album.png');
 	float: left;
 }
 
 .songs_list .title {
 	margin-bottom: 5px;
-	font-size: 16px;
+	font-size: 1em;
 	font-weight: bold;
 }
 

@@ -4,7 +4,7 @@ README
 
 Whenever you push something to the master branch, it will automatically go to the server.
 We use rsync for this.
-NOPE?
+
 = TWITTER
 
 	Twitter OAuth 1.0 workflow (encapsulated 1-3 inside twitter.php)

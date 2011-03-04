@@ -18,7 +18,7 @@ if (!empty($_SESSION['user_id'])) {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>DJDP3000</title>
 	<meta name="generator" content="TextMate http://macromates.com/">
-	<meta name="author" content="Niels Joubert, Gleb Denisov">
+	<meta name="author" content="Niels Joubert, Gleb Denisov, Patrick Tierney">
 </head>
 <body>
 

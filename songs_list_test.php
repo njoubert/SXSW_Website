@@ -20,41 +20,33 @@
 	<script type="text/javascript" src="static/js/iscroll-min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		/*
-		var myScroll;
-		var a = 0;
-		function loaded() {
-			setHeight();	// Set the wrapper height.
-			myScroll = new iScroll('scroller', {desktopCompatibility:true});
-		}
-		 
-		// Change wrapper height based on device orientation.
-		function setHeight() {
-			var headerH = document.getElementById('header').offsetHeight,
-				wrapperH = window.innerHeight - headerH;
-			document.getElementById('container').style.height = wrapperH + 'px';
-		}
-		 
-		// Check screen size on orientation change
-		window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', setHeight, false);
-		 
-		// Prevent the whole screen to scroll when dragging elements outside of the scroller (ie:header/footer).
-		// If you want to use iScroll in a portion of the screen and still be able to use the native scrolling, do *not* preventDefault on touchmove.
-		document.addEventListener('touchmove', function (e) {}, false);
-		 
-		// Load iScroll when DOM content is ready.
-		document.addEventListener('DOMContentLoaded', loaded, false);
+		// Create a 'namespace' for our app
+		var djdp = {};
 		
-		*/
+		djdp.searchBarDiv = false;
+		
+		djdp.moveSearchBar = function() {
+			if(djdp.searchBarDiv) {
+				var translate = window.scrollY;
+				djdp.searchBarDiv.style['-webkit-transform'] = 'translateY(' + translate + 'px)';
+			}
+		};
+		
+		// Assign on scroll listener that will reposition the search bar
+		window.onscroll = function() {
+			djdp.moveSearchBar();
+		};
+		
 		$(document).ready(function() {
-			$('.vote-btn').bind('touchstart', function() {
+			// Init menuDiv
+			djdp.searchBarDiv = $('#header');
+			
+			// Assign on-click behaviour to vote button
+			$('.vote-btn').bind('click', function() {
 				var el = $(this);
-				el.addClass('click');
 				var song_id = el.attr('data-song');
 				if(confirm('You are votin\' for ' + song_id)) {
 					el.html('Voted');
-				} else {
-					el.removeClass('click');
 				};
 			});
 		});

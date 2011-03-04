@@ -23,7 +23,6 @@ if (isset($_REQUEST['oauth_token'])) {
 		//if the user exists, update. if not, create.
 		$DB = new SQLQuery();
 		$DB->chooseTable(DB_USERS_TABLE);
-		$DB->toggleDebug();
 		$dataInsert = array();
 		$fullname = explode(" ", $content->name);
 		$fname = "Britney";
@@ -52,11 +51,10 @@ if (isset($_REQUEST['oauth_token'])) {
 		if ($update_success == 0) {
 			$_SESSION['status'] = 'error';			
 		} else {			
-			echo "<p>User id object: ".$user_id."</p>";
 			$_SESSION['user_id'] = $user_id;
 			$_SESSION['twitter_uid'] = $content->id;
 		}
-		//header('Location: ./index.php');
+		header('Location: ./index.php');
 	} else {
 		header('Location: ./clearsessions.php');
 	}

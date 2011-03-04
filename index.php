@@ -30,7 +30,9 @@ if (empty($_SESSION['user_id'])) {
 //ALREADY LOGGED IN PAGE
 
 $user = get_user($_SESSION['user_id']);
-
+if (empty($user)) {
+	header('Location: ./clearsessions.php');
+}
 ?>
 <h1>WELCOME!</h1>
 <p><a href="./clearsessions.php">Log out</a></p>

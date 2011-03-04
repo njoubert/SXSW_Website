@@ -20,6 +20,7 @@
 	<script type="text/javascript" src="static/js/iscroll-min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
+		/*
 		var myScroll;
 		var a = 0;
 		function loaded() {
@@ -43,7 +44,7 @@
 		 
 		// Load iScroll when DOM content is ready.
 		document.addEventListener('DOMContentLoaded', loaded, false);
-		
+		*/
 		$(document).ready(function() {
 			$('.vote-btn').bind('touchstart', function() {
 				var el = $(this);

@@ -3,7 +3,7 @@ README
 = PRODUCTION
 
 Whenever you push something to the master branch, it will automatically go to the server.
-We use rsync for this....
+We use rsync for this.
 
 = TWITTER
 

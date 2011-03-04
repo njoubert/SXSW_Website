@@ -45,9 +45,6 @@
 		// Load iScroll when DOM content is ready.
 		document.addEventListener('DOMContentLoaded', loaded, false);
 		
-		
-		
-		
 		*/
 		$(document).ready(function() {
 			$('.vote-btn').bind('touchstart', function() {

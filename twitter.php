@@ -40,24 +40,26 @@ if (isset($_REQUEST['oauth_token'])) {
 
 
 		$user = $DB->selectWhatWhere("*", "tw_id = " . $content->id);
+		$update_success = 0;
 		echo "<p>YES</p><p>";
 		if (empty($user)) { 
-			$user = $DB->addItemsArray($dataInsert);
-			print_r($user);
+			$update_success = $DB->addItemsArray($dataInsert);
 		} else {
 			$user_id = $user[0]["users"]["id"];
 			echo "current user " . $user_id . "</p><p>";
-
-			$user = $DB->updateWhatWhereArray2($dataInsert, "id = " . $user_id);
-			print_r($user);
+			$update_success = $DB->updateWhatWhereArray2($dataInsert, "id = " . $user_id);
 		}
-		if (empty($user)) {
-			$_SESSION['status'] = 'error';
-			$_SESSION['twitter_uid'] = $content->id;
-			$_SESSION['user_id'] = $user->id;
+		if ($update_success == 0) {
+			$_SESSION['status'] = 'error';			
 		} else {
+			$user_id = $DB->getLastId();
+			echo "<p>User id object: ".$user_id."</p>";
+			$_SESSION['user_id'] = $user_id
 			$_SESSION['status'] = 'verified';
+			$_SESSION['twitter_uid'] = $content->id;
+			
 		}
+
 		echo "</p>";
 		//header('Location: ./index.php');
 	} else {

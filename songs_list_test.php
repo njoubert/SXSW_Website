@@ -39,7 +39,7 @@
 		
 		$(document).ready(function() {
 			// Init menuDiv
-			djdp.searchBarDiv = $('#header');
+			djdp.searchBarDiv = $('#header')[0];
 			
 			// Assign on-click behaviour to vote button
 			$('.vote-btn').bind('click', function() {

@@ -43,6 +43,7 @@ if (isset($_REQUEST['oauth_token'])) {
 		echo "<p>YES</p><p>";
 		if (empty($user)) { 
 			$user = $DB->addItemsArray($dataInsert);
+			print_r($user);
 		} else {
 			$user_id = $user[0]["users"]["id"];
 			echo "current user " . $user_id . "</p><p>";

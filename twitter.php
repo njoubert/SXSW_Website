@@ -41,26 +41,21 @@ if (isset($_REQUEST['oauth_token'])) {
 
 		$user = $DB->selectWhatWhere("*", "tw_id = " . $content->id);
 		$update_success = 0;
-		echo "<p>YES</p><p>";
+		$user_id = 0;
 		if (empty($user)) { 
 			$update_success = $DB->addItemsArray($dataInsert);
+			$user_id = $DB->getLastId(); 
 		} else {
 			$user_id = $user[0]["users"]["id"];
-			echo "current user " . $user_id . "</p><p>";
 			$update_success = $DB->updateWhatWhereArray2($dataInsert, "id = " . $user_id);
 		}
 		if ($update_success == 0) {
 			$_SESSION['status'] = 'error';			
-		} else {
-			$user_id = $DB->getLastId();
+		} else {			
 			echo "<p>User id object: ".$user_id."</p>";
 			$_SESSION['user_id'] = $user_id;
-			$_SESSION['status'] = 'verified';
 			$_SESSION['twitter_uid'] = $content->id;
-			
 		}
-
-		echo "</p>";
 		//header('Location: ./index.php');
 	} else {
 		header('Location: ./clearsessions.php');

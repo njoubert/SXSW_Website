@@ -39,8 +39,8 @@ if (empty($_SESSION['user_id'])) {
 <h1>WELCOME!</h1>
 <p><a href="./clearsessions.php">Log out</a></p>
 
-<p>Hello <?php echo $user->fname . " " . $user->lname; ?>, your twitter id is <?php echo $user->tw_id; ?></p>
-<p>your avatar:<img src="<?php echo $user->avatar; ?>"/>
+<p>Hello <?php echo $user['fname'] . " " . $user['lname']; ?>, your twitter id is <?php echo $user['tw_id']; ?></p>
+<p>your avatar:<img src="<?php echo $user['avatar']; ?>"/>
 
 <?php
 }

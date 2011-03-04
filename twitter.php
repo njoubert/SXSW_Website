@@ -54,7 +54,7 @@ if (isset($_REQUEST['oauth_token'])) {
 		} else {
 			$user_id = $DB->getLastId();
 			echo "<p>User id object: ".$user_id."</p>";
-			$_SESSION['user_id'] = $user_id
+			$_SESSION['user_id'] = $user_id;
 			$_SESSION['status'] = 'verified';
 			$_SESSION['twitter_uid'] = $content->id;
 			

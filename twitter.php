@@ -48,7 +48,7 @@ if (isset($_REQUEST['oauth_token'])) {
 			echo "current user " . $user_id . "</p><p>";
 
 			$user = $DB->updateWhatWhereArray2($dataInsert, "id = " . $user_id);
-			print_t($user);
+			print_r($user);
 		}
 		if (empty($user)) {
 			$_SESSION['status'] = 'error';

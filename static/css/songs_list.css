@@ -95,6 +95,6 @@ body {
 	border-radius: 10px;
 }
 
-.songs-list .vote-btn:active {
+.songs-list .vote-btn:active, .songs-list .vote-btn.click {
 	background: #cb2900;
 }

@@ -23,7 +23,6 @@ if (isset($_REQUEST['oauth_token'])) {
 		//if the user exists, update. if not, create.
 		$DB = new SQLQuery();
 		$DB->chooseTable(DB_USERS_TABLE);
-		$DB->toggleDebug();
 		$dataInsert = array();
 		$fullname = explode(" ", $content->name);
 		$fname = "Britney";
@@ -40,24 +39,22 @@ if (isset($_REQUEST['oauth_token'])) {
 
 
 		$user = $DB->selectWhatWhere("*", "tw_id = " . $content->id);
-		echo "<p>YES</p><p>";
+		$update_success = 0;
+		$user_id = 0;
 		if (empty($user)) { 
-			$user = $DB->addItemsArray($dataInsert);
+			$update_success = $DB->addItemsArray($dataInsert);
+			$user_id = $DB->getLastId(); 
 		} else {
 			$user_id = $user[0]["users"]["id"];
-			echo "current user " . $user_id . "</p><p>";
-
-			$user = $DB->updateWhatWhereArray2($dataInsert, "id = " . $user_id);
+			$update_success = $DB->updateWhatWhereArray2($dataInsert, "id = " . $user_id);
 		}
-		if (empty($user)) {
-			$_SESSION['status'] = 'error';
+		if ($update_success == 0) {
+			$_SESSION['status'] = 'error';			
+		} else {			
+			$_SESSION['user_id'] = $user_id;
 			$_SESSION['twitter_uid'] = $content->id;
-			$_SESSION['user_id'] = $user->id;
-		} else {
-			$_SESSION['status'] = 'verified';
 		}
-		echo "</p>";
-		//header('Location: ./index.php');
+		header('Location: ./index.php');
 	} else {
 		header('Location: ./clearsessions.php');
 	}

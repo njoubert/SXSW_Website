@@ -179,7 +179,7 @@ class SQLQuery {
 	}
 	
 	function updateWhatWhereArray2($_keyvalues, $_where) {
-		return $this->updateWhatWhereArray($_keyvalues, array_keys($_keyvalues), $_where)
+		return $this->updateWhatWhereArray($_keyvalues, array_keys($_keyvalues), $_where);
 	}
 	
 	function updateWhatWhere($fields, $where) {

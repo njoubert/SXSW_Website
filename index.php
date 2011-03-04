@@ -33,6 +33,7 @@ $user = get_user($_SESSION['user_id']);
 if (empty($user)) {
 	header('Location: ./clearsessions.php');
 }
+print_r($user);
 ?>
 <h1>WELCOME!</h1>
 <p><a href="./clearsessions.php">Log out</a></p>

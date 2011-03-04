@@ -1,5 +1,4 @@
 README
-DROP TABLES
 = PRODUCTION
 
 Whenever you push something to the master branch, it will automatically go to the server.
